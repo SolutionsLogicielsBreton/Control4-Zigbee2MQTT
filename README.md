@@ -87,8 +87,8 @@ You can find your device’s vendor and model in the Zigbee2MQTT UI or on the
 [Supported Devices list](https://www.zigbee2mqtt.io/supported-devices/).
 
 If no dedicated driver exists, generic drivers are available that provide
-basic support for many sensor types.  Philips Hue devices use a slightly
-different naming scheme but are listed in the same directory.
+basic support for many sensor types.  
+Philips Hue devices use a slightly different naming scheme but are listed in the same directory.
 
 ---
 
