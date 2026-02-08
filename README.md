@@ -16,6 +16,7 @@ The bridge then communicates with the child drivers to control specific devices.
 
 # <span style="color:#660066">Features</span>
 
+- Dedicated drivers for devices
 - Connects to any standard MQTT broker
 - Supports username/password authentication
 - Automatic reconnection on disconnect
