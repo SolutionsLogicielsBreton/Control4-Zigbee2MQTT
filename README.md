@@ -40,7 +40,7 @@ Yes! I recommend starting with one of the generic drivers as template.
 
 Looking at the `driver.xml` and `driver.lua` files, how to modify them to support the extra properties of your device should be pretty straightforward.
 
-**If you don't know how compile a driver, you can simply open and edit the files within the `.c4z` directly as they are actually `.zip` files.
+**If you don't know how compile a driver, you can simply open and edit the files within the `.c4z` directly as they are actually `.zip` files.**
 
 <div style="page-break-after: always"></div>
 
