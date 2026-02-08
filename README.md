@@ -36,7 +36,7 @@ If a driver specific to your device isn't available, generic drivers exist that 
 
 # <span style="color:#660066">There doesn't seem to be a driver for my device, can I write my own?</span>
 
-Yes! I recommend starting with one of the generic drivers as template.
+Yes! Most drivers are unencrypted, so you can use them as starting template for your own.
 
 Looking at the `driver.xml` and `driver.lua` files, how to modify them to support the extra properties of your device should be pretty straightforward.
 
