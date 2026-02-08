@@ -50,7 +50,7 @@ Looking at the `driver.xml` and `driver.lua` files, how to modify them to suppor
 
 ## Driver Installation
 
-1.  Download the latest `Z2MQTT_Bridge.c4z` driver from this repository and add it to your Control4 project.
+1.  Download the latest [`Z2MQTT_Bridge.c4z`](https://github.com/SolutionsLogicielsBreton/Control4-Zigbee2MQTT/blob/main/drivers/Z2MQTT_Bridge.c4z) driver from this repository and add it to your Control4 project.
 
 2.  Follow the documentation in the documentation tab of the driver in Composer Pro to configure it properly.
 
