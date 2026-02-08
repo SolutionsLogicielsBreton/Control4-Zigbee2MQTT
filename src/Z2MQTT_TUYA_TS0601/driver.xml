@@ -1,0 +1,246 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT TUYA TS0601</name>
+  <small>devices_sm\C4.gif</small>
+  <large>devices_lg\C4.gif</large>
+  <model>Tuya TS0601</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2025 6:16 AM</created>
+  <modified>10/19/2025 6:16 PM</modified>
+  <version>15</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Temperature Unit</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Celsius</default>
+        <items>
+          <item>Celsius</item>
+          <item>Fahrenheit</item>
+        </items>
+      </property>
+      <property>
+        <name>Temperature</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Humidity %</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Battery State</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <commands>
+      <command>
+        <name>Set Temperature Unit</name>
+        <description>Change temperature unit toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Unit</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Celsius</item>
+              <item>Fahrenheit</item>
+            </items>
+          </param>
+        </params>
+      </command>
+    </commands>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When The Temperature Changes</name>
+      <description>When the NAME temperature changes</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When The Temperature Unit Changes</name>
+      <description>When the NAME temperature unit changes</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Humidity % Changes</name>
+      <description>When the NAME humidity changes</description>
+      <sort_order>2</sort_order>
+    </event>
+    <event>
+      <id>4</id>
+      <name>When The Battery State Changes</name>
+      <description>When the NAME battery state changes</description>
+      <sort_order>3</sort_order>
+    </event>
+    <event>
+      <id>5</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>4</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>NUMBER_TEMPERATURE_LEVEL</name>
+      <type>NUMBER</type>
+      <condition_statement>Temperature is</condition_statement>
+      <description>the Temperature on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>LIST_TEMPERATURE_UNIT</name>
+      <type>LIST</type>
+      <condition_statement>Temperature Unit is</condition_statement>
+      <description>the Temperature Unit on NAME is LOGIC STRING</description>
+      <items>
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+      </items>
+      <sort_order>1</sort_order>
+    </conditional>
+    <conditional>
+      <id>2</id>
+      <name>NUMBER_HUMIDITY_PERCENT</name>
+      <type>NUMBER</type>
+      <condition_statement>Humidity % is</condition_statement>
+      <description>the Humidity % on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>100</maximum>
+      <sort_order>2</sort_order>
+    </conditional>
+    <conditional>
+      <id>3</id>
+      <name>LIST_BATTERY_STATE</name>
+      <type>LIST</type>
+      <condition_statement>Battery State is</condition_statement>
+      <description>the Battery State on NAME is LOGIC STRING</description>
+      <items>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+      </items>
+      <sort_order>3</sort_order>
+    </conditional>
+    <conditional>
+      <id>4</id>
+      <name>BOOL_CONNECTION_STATUS</name>
+      <type>BOOL</type>
+      <condition_statement>Connection Status is</condition_statement>
+      <description>the Connection Status on NAME is STRING</description>
+      <true_text>Online</true_text>
+      <false_text>Offline</false_text>
+      <sort_order>4</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <id>1</id>
+      <facing>6</facing>
+      <connectionname>Temperature</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <classes>
+        <class>
+          <classname>TEMPERATURE_VALUE</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>2</id>
+      <facing>6</facing>
+      <connectionname>Humidity</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <classes>
+        <class>
+          <classname>HUMIDITY_VALUE</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_TUYA_TS0601</proxy>
+  </proxies>
+</devicedata>

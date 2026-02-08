@@ -1,0 +1,169 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT Generic Contact Sensor</name>
+  <small>devices_sm\contactsingle_contactswitch_open.gif</small>
+  <large>devices_lg\contactsingle_contactswitch_open.gif</large>
+  <model>Generic Contact Sensor</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2025 6:16 AM</created>
+  <modified>10/19/2025 6:16 PM</modified>
+  <version>4</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Contact</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Battery Level</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <commands></commands>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When The Contact Changes</name>
+      <description>When the NAME contact changes</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When The Battery Level Changes</name>
+      <description>When the NAME battery level changes</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>4</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>BOOL_CONTACT</name>
+      <type>BOOL</type>
+      <condition_statement>Contact is</condition_statement>
+      <description>the Contact on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>NUMBER_BATTERY_LEVEL</name>
+      <type>NUMBER</type>
+      <condition_statement>Battery Level is</condition_statement>
+      <description>the Battery Level on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>100</maximum>
+      <sort_order>1</sort_order>
+    </conditional>
+    <conditional>
+      <id>2</id>
+      <name>BOOL_CONNECTION_STATUS</name>
+      <type>BOOL</type>
+      <condition_statement>Connection Status is</condition_statement>
+      <description>the Connection Status on NAME is STRING</description>
+      <true_text>Online</true_text>
+      <false_text>Offline</false_text>
+      <sort_order>2</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <id>1</id>
+      <facing>6</facing>
+      <connectionname>Contact Sensor</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <audiosource>False</audiosource>
+      <videosource>False</videosource>
+      <linelevel>False</linelevel>
+      <classes>
+        <class>
+          <classname>CONTACT_SENSOR</classname>
+        </class>
+      </classes>
+      <hidden>False</hidden>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_GENERIC_CONTACT_SENSOR</proxy>
+  </proxies>
+</devicedata>

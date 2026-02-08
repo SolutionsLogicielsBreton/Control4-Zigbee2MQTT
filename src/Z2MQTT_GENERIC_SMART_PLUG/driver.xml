@@ -1,0 +1,185 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT Generic Smart Plug</name>
+  <small>devices_sm\wireless_outlet.gif</small>
+  <large>devices_lg\wireless_outlet.gif</large>
+  <model>Generic Smart Plug</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2025 6:16 AM</created>
+  <modified>10/19/2025 6:16 PM</modified>
+  <version>1</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>State</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <commands>
+      <command>
+        <name>Set State</name>
+        <description>Set State toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>State</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>On</item>
+              <item>Off</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Turn on with on time</name>
+        <description>Turn on NAME forPARAM1 seconds</description>
+        <params>
+          <param>
+            <name>On Time (seconds)</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>0</minimum>
+            <maximum>999999</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Toggle</name>
+        <description>Toggles NAME On or Off</description>
+      </command>
+    </commands>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When Turned On</name>
+      <description>When the NAME is turned on</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When Turned Off</name>
+      <description>When the NAME is turned off</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>2</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>BOOL_STATE</name>
+      <type>BOOL</type>
+      <condition_statement>State is</condition_statement>
+      <description>the State on NAME is STRING</description>
+      <true_text>On</true_text>
+      <false_text>Off</false_text>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>BOOL_CONNECTION_STATUS</name>
+      <type>BOOL</type>
+      <condition_statement>Connection Status is</condition_statement>
+      <description>the Connection Status on NAME is STRING</description>
+      <true_text>Online</true_text>
+      <false_text>Offline</false_text>
+      <sort_order>1</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <type>1</type>
+      <id>1</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>Smart Plug</connectionname>
+      <facing>6</facing>
+      <consumer>false</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>RELAY</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_GENERIC_SMART_PLUG</proxy>
+  </proxies>
+</devicedata>

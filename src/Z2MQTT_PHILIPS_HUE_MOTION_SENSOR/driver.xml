@@ -1,0 +1,356 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT Philips Hue Motion Sensor</name>
+  <small>devices_sm\contactsingle_motionsensor_close.gif</small>
+  <large>devices_lg\contactsingle_motionsensor_close.gif</large>
+  <model>Philips Hue Motion Sensor</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2025 6:16 AM</created>
+  <modified>10/19/2025 6:16 PM</modified>
+  <version>3</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Occupancy</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Temperature</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Illuminance</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Motion Sensitivity</name>
+        <type>LIST</type>
+        <items>
+          <item>Low</item>
+          <item>Medium</item>
+          <item>High</item>
+          <item>Very High</item>
+          <item>Max</item>
+        </items>
+        <default>High</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Occupancy Timeout</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>false</readonly>
+        <description>Time in seconds after which the occupancy is considered to have expired (max: 65535)</description>
+      </property>
+      <property>
+        <name>Led Indication</name>
+        <type>LIST</type>
+        <items>
+          <item>True</item>
+          <item>False</item>
+        </items>
+        <default>True</default>
+        <readonly>false</readonly>
+        <description>Blink green LED on motion detection</description>
+      </property>
+      <property>
+        <name>Battery Level</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <commands>
+      <command>
+        <name>Set Motion Sensitivity</name>
+        <description>Change motion sensitivity toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Sensitivity</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Low</item>
+              <item>Medium</item>
+              <item>High</item>
+              <item>Very High</item>
+              <item>Max</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Led Indication</name>
+        <description>Change led indication toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Indication</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Occupancy Timeout</name>
+        <description>Change the occupancy timeout toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Timeout</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>0</minimum>
+            <maximum>65535</maximum>
+          </param>
+        </params>
+      </command>
+    </commands>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When The Occupancy Changes</name>
+      <description>When the NAME occupancy changes</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When The Illuminance Changes</name>
+      <description>When the NAME illuminance changes</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Temperature Changes</name>
+      <description>When the NAME temperature changes</description>
+      <sort_order>2</sort_order>
+    </event>
+    <event>
+      <id>4</id>
+      <name>When The Motion Sensitivity Changes</name>
+      <description>When the NAME motion sensitivity changes</description>
+      <sort_order>3</sort_order>
+    </event>
+    <event>
+      <id>5</id>
+      <name>When The Occupancy Timeout Changes</name>
+      <description>When the NAME occupancy timeout changes</description>
+      <sort_order>4</sort_order>
+    </event>
+    <event>
+      <id>6</id>
+      <name>When The Led Indication Changes</name>
+      <description>When the NAME led indication changes</description>
+      <sort_order>5</sort_order>
+    </event>
+    <event>
+      <id>7</id>
+      <name>When The Battery Level Changes</name>
+      <description>When the NAME battery level changes</description>
+      <sort_order>6</sort_order>
+    </event>
+    <event>
+      <id>8</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>7</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>BOOL_OCCUPANCY</name>
+      <type>BOOL</type>
+      <condition_statement>Occupancy is</condition_statement>
+      <description>the Occupancy on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>NUMBER_ILLUMINANCE</name>
+      <type>NUMBER</type>
+      <condition_statement>Illuminance is</condition_statement>
+      <description>the Illuminance on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>1</sort_order>
+    </conditional>
+    <conditional>
+      <id>2</id>
+      <name>NUMBER_TEMPERATURE_LEVEL</name>
+      <type>NUMBER</type>
+      <condition_statement>Temperature is</condition_statement>
+      <description>the Temperature on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>2</sort_order>
+    </conditional>
+    <conditional>
+      <id>3</id>
+      <name>LIST_MOTION_SENSITIVITY</name>
+      <type>LIST</type>
+      <condition_statement>Motion Sensitivity is</condition_statement>
+      <description>the Motion Sensitivity on NAME is LOGIC STRING</description>
+      <items>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Very High</item>
+        <item>Max</item>
+      </items>
+      <sort_order>3</sort_order>
+    </conditional>
+    <conditional>
+      <id>4</id>
+      <name>NUMBER_OCCUPANCY_TIMEOUT</name>
+      <type>NUMBER</type>
+      <condition_statement>Occupancy Timeout is</condition_statement>
+      <description>the Occupancy Timeout on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>65535</maximum>
+      <sort_order>4</sort_order>
+    </conditional>
+    <conditional>
+      <id>5</id>
+      <name>BOOL_LED_INDICATION</name>
+      <type>BOOL</type>
+      <condition_statement>Led Indication is</condition_statement>
+      <description>the Led Indication on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>5</sort_order>
+    </conditional>
+    <conditional>
+      <id>6</id>
+      <name>NUMBER_BATTERY_LEVEL</name>
+      <type>NUMBER</type>
+      <condition_statement>Battery Level is</condition_statement>
+      <description>the Battery Level on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>100</maximum>
+      <sort_order>6</sort_order>
+    </conditional>
+    <conditional>
+      <id>7</id>
+      <name>BOOL_CONNECTION_STATUS</name>
+      <type>BOOL</type>
+      <condition_statement>Connection Status is</condition_statement>
+      <description>the Connection Status on NAME is STRING</description>
+      <true_text>Online</true_text>
+      <false_text>Offline</false_text>
+      <sort_order>7</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <id>1</id>
+      <facing>6</facing>
+      <connectionname>Temperature</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <classes>
+        <class>
+          <classname>TEMPERATURE_VALUE</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>2</id>
+      <facing>6</facing>
+      <connectionname>Motion Sensor</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <audiosource>False</audiosource>
+      <videosource>False</videosource>
+      <linelevel>False</linelevel>
+      <classes>
+        <class>
+          <classname>CONTACT_SENSOR</classname>
+        </class>
+      </classes>
+      <hidden>False</hidden>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_PHILIPS_HUE_MOTION_SENSOR</proxy>
+  </proxies>
+</devicedata>

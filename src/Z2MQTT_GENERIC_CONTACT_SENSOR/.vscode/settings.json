@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "Properties",
+        "C4",
+        "gDebugTimer",
+        "gAvailableZigbeeDeviceNameToZigbeeId",
+        "gDeviceData",
+        "ON_DRIVER_LATEINIT"
+    ]
+}
