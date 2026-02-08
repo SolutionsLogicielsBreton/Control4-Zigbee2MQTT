@@ -19,6 +19,7 @@ The driver can then communicates and control the devices within Zigbee2MQTT from
 - Dedicated drivers for devices
 - Connects to any standard MQTT broker
 - Supports username/password authentication
+- Supports multiple versions of MQTT
 - Automatic reconnection on disconnect
 - Message caching for late-subscribing devices
 
