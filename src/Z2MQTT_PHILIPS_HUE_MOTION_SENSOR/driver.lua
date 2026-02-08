@@ -30,14 +30,6 @@ OBC[1] = function (idBinding, strClass, bIsBound, otherDeviceId, otherBindingId)
 	end
 end
 
-OBC[2] = function (idBinding, strClass, bIsBound, otherDeviceId, otherBindingId)
-	Dbg:Debug("OBC.MOTION_SENSOR")
-
-	if(bIsBound and Properties["Temperature"] ~= "Unknown") then
-        C4:SendToProxy(1, "VALUE_INITIALIZE", { CELSIUS = tonumber(Properties["Temperature"])})
-	end
-end
-
 -- ON PROPERTY CHANGES
 function OPC.Motion_Sensitivity(motion_sensitivity)
     if(gDeviceData.zigbee_device_id ~= nil) then
