@@ -1,0 +1,12 @@
+
+c4-pyatv-remote
+
+HueBridgeSSE/driver.lua.squished
+
+HueAccessory/driver.lua.squished
+
+UnifiAccessControlHub/driver.lua.squished
+
+UnifiAccessControlDoor/driver.lua.squished
+
+*.squished
