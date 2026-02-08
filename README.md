@@ -25,7 +25,7 @@ The driver can then communicates and control the devices within Zigbee2MQTT from
 
 # <span style="color:#660066">How do I know if my device is supported?</span>
 
-The device drivers usually are named with the following naming convention:
+The device drivers are usually named with the following naming convention:
 Z2MQTT + Vendor + Model
 
 So for a `Tuya TS0601` you would be looking for a driver named `Z2MQTT_TUYA_TS0601.c4z`
