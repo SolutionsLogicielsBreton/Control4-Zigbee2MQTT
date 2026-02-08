@@ -32,7 +32,7 @@ So for a `Tuya TS0601` you would be looking for a driver named `Z2MQTT_TUYA_TS06
 
 **You can find your model and vendor in Zigbee2MQTT, or on their site https://www.zigbee2mqtt.io/supported-devices/#**
 
-If a driver specific to your device isn't available, generic drivers exist that should provide basic support for most types of sensors.
+If a driver specific for your device isn't available, plenty of generic drivers exist that should provide basic support for most types of sensors.
 
 **Philips Hue devices have device drivers with a friendlier naming convention**
 
