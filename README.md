@@ -54,4 +54,4 @@ Looking at the `driver.xml` and `driver.lua` files, how to modify them to suppor
 
 2.  Follow the documentation in the documentation tab of the driver in Composer Pro to configure it properly.
 
-3.  Once properly connected download and add the device drivers you need from this repository [`/drivers`](https://github.com/SolutionsLogicielsBreton/Control4-Zigbee2MQTT/tree/main/drivers)
+3.  Once properly connected, download and add the device drivers to your project from [`/drivers`](https://github.com/SolutionsLogicielsBreton/Control4-Zigbee2MQTT/tree/main/drivers)
