@@ -5,7 +5,7 @@
 
 This Control4 driver connects to an MQTT broker in order to communicate with Zigbee2MQTT.
 
-The bridge can then communicates and control the devices within Zigbee2MQTT from Control4
+The driver can then communicates and control the devices within Zigbee2MQTT from Control4
 
 <div style="page-break-after: always"></div>
 
