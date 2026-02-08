@@ -1,10 +1,10 @@
 <devicedata>
   <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
   <manufacturer>Solutions Logiciels Breton</manufacturer>
-  <name>Z2MQTT Hue Contact Sensor</name>
+  <name>Z2MQTT Philips Hue Contact Sensor</name>
   <small>devices_sm\contactsingle_contactswitch_open.gif</small>
   <large>devices_lg\contactsingle_contactswitch_open.gif</large>
-  <model>Hue Contact Sensor</model>
+  <model>Philips Hue Contact Sensor</model>
   <creator>Solutions Logiciels Breton</creator>
   <created>10/19/2025 6:16 AM</created>
   <modified>10/19/2025 6:16 PM</modified>
@@ -202,6 +202,6 @@
   </connections>
   <combo>true</combo>
   <proxies>
-    <proxy>Z2MQTT_HUE_CONTACT_SENSOR</proxy>
+    <proxy>Z2MQTT_PHILIPS_HUE_CONTACT_SENSOR</proxy>
   </proxies>
 </devicedata>

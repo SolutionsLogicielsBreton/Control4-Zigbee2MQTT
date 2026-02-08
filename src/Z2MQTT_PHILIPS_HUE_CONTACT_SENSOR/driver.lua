@@ -6,7 +6,7 @@ require ('common.boilerplate')
 gAvailableZigbeeDeviceNameToZigbeeId = {}
 
 -- NAME USED FOR LOGGING
-gLogName = "Z2MQTT_HUE_CONTACT_SENSOR"
+gLogName = "Z2MQTT_PHILIPS_HUE_CONTACT_SENSOR"
 
 -- DRIVER LIFETIME
 function ON_DRIVER_LATEINIT.DRIVER (dit)

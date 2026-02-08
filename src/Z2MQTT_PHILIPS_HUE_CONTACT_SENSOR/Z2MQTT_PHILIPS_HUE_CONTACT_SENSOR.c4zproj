@@ -1,4 +1,4 @@
-﻿<Driver type="c4z" name="Z2MQTT_HUE_CONTACT_SENSOR">
+﻿<Driver type="c4z" name="Z2MQTT_PHILIPS_HUE_CONTACT_SENSOR">
  <Items>
   <Item type="dir" c4zDir="common" name="common" recurse="true" exclude="false" />
   <Item type="file" name="driver.xml" />
