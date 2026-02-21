@@ -1,0 +1,1327 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT Aqara PS-S04D</name>
+  <small>devices_sm\contactsingle_motionsensor_close.gif</small>
+  <large>devices_lg\contactsingle_motionsensor_close.gif</large>
+  <model>Aqara FP300</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2025 6:16 AM</created>
+  <modified>10/19/2025 6:16 PM</modified>
+  <version>23</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Presence</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Pir Detection</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Presence Detection Options</name>
+        <type>LIST</type>
+        <items>
+          <item>Both</item>
+          <item>MMWave</item>
+          <item>Pir</item>
+        </items>
+        <default>Both</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Motion Sensitivity</name>
+        <type>LIST</type>
+        <items>
+          <item>Low</item>
+          <item>Medium</item>
+          <item>High</item>
+        </items>
+        <default>Low</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>AI Interference Source Self Identification</name>
+        <type>LIST</type>
+        <items>
+          <item>True</item>
+          <item>False</item>
+        </items>
+        <default>True</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>AI Sensitivity Adaptive</name>
+        <type>LIST</type>
+        <items>
+          <item>True</item>
+          <item>False</item>
+        </items>
+        <default>True</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Absence Delay Timer</name>
+        <type>RANGED_INTEGER</type>
+        <default>10</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (10-300)</description>
+        <minimum>10</minimum>
+        <maximum>300</maximum>
+      </property>
+      <property>
+        <name>Pir Detection Interval</name>
+        <type>RANGED_INTEGER</type>
+        <default>10</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (10-300)</description>
+        <minimum>10</minimum>
+        <maximum>300</maximum>
+      </property>
+      <property>
+        <name>Illuminance</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Humidity</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Temperature</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Temp And Humidity Sampling</name>
+        <type>LIST</type>
+        <items>
+          <item>Off</item>
+          <item>Low</item>
+          <item>Medium</item>
+          <item>High</item>
+          <item>Custom</item>
+        </items>
+        <default>Off</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Temp And Humidity Sampling Period</name>
+        <type>RANGED_FLOAT</type>
+        <default>0.5</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (0.5-3600)</description>
+        <minimum>0.5</minimum>
+        <maximum>3600</maximum>
+      </property>
+      <property>
+        <name>Temp Reporting Interval</name>
+        <type>RANGED_INTEGER</type>
+        <default>600</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (600-3600)</description>
+        <minimum>600</minimum>
+        <maximum>3600</maximum>
+      </property>
+      <property>
+        <name>Temp Reporting Threshold</name>
+        <type>RANGED_FLOAT</type>
+        <default>0.2</default>
+        <readonly>false</readonly>
+        <description>Threshold in °C (0.2-3)</description>
+        <minimum>0.2</minimum>
+        <maximum>3</maximum>
+      </property>
+      <property>
+        <name>Temp Reporting Mode</name>
+        <type>LIST</type>
+        <items>
+          <item>Threshold</item>
+          <item>Reporting interval</item>
+          <item>Threshold and interval</item>
+        </items>
+        <default>Threshold</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Humidity Reporting Interval</name>
+        <type>RANGED_INTEGER</type>
+        <default>600</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (600-3600)</description>
+        <minimum>600</minimum>
+        <maximum>3600</maximum>
+      </property>
+      <property>
+        <name>Humidity Reporting Threshold</name>
+        <type>RANGED_INTEGER</type>
+        <default>2</default>
+        <readonly>false</readonly>
+        <description>Threshold in % (2-10)</description>
+        <minimum>2</minimum>
+        <maximum>10</maximum>
+      </property>
+      <property>
+        <name>Humidity Report Mode</name>
+        <type>LIST</type>
+        <items>
+          <item>Threshold</item>
+          <item>Reporting interval</item>
+          <item>Threshold and interval</item>
+        </items>
+        <default>Threshold</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Light Sampling</name>
+        <type>LIST</type>
+        <items>
+          <item>Off</item>
+          <item>Low</item>
+          <item>Medium</item>
+          <item>High</item>
+          <item>Custom</item>
+        </items>
+        <default>Off</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Light Sampling Period</name>
+        <type>RANGED_FLOAT</type>
+        <default>0.5</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (0.5-3600)</description>
+        <minimum>0.5</minimum>
+        <maximum>3600</maximum>
+      </property>
+      <property>
+        <name>Light Reporting Interval</name>
+        <type>RANGED_INTEGER</type>
+        <default>20</default>
+        <readonly>false</readonly>
+        <description>Time in seconds (20-3600)</description>
+        <minimum>20</minimum>
+        <maximum>3600</maximum>
+      </property>
+      <property>
+        <name>Light Reporting Threshold</name>
+        <type>RANGED_INTEGER</type>
+        <default>3</default>
+        <readonly>false</readonly>
+        <description>Threshold in % (3-20)</description>
+        <minimum>3</minimum>
+        <maximum>20</maximum>
+      </property>
+      <property>
+        <name>Light Report Mode</name>
+        <type>LIST</type>
+        <items>
+          <item>Threshold</item>
+          <item>Reporting interval</item>
+          <item>Threshold and interval</item>
+        </items>
+        <default>Threshold</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Target Distance</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Detection Range</name>
+        <type>RANGED_INTEGER</type>
+        <default>0</default>
+        <readonly>false</readonly>
+        <description>Range (0-16777215)</description>
+        <minimum>0</minimum>
+        <maximum>16777215</maximum>
+      </property>
+      <property>
+        <name>Led Disabled Night</name>
+        <type>LIST</type>
+        <items>
+          <item>True</item>
+          <item>False</item>
+        </items>
+        <default>True</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Schedule Start Time</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>false</readonly>
+        <description>In HH:MM format</description>
+      </property>
+      <property>
+        <name>Schedule End Time</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>false</readonly>
+        <description>In HH:MM format</description>
+      </property>
+      <property>
+        <name>Battery Level</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Voltage</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Power Outage Count</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <actions>
+      <action>
+        <name>Identify</name>
+        <command>IDENTIFY</command>
+      </action>
+      <action>
+        <name>Track Target Distance</name>
+        <command>TRACK_TARGET_DISTANCE</command>
+      </action>
+      <action>
+        <name>Start Spatial Learning</name>
+        <command>START_SPATIAL_LEARNING</command>
+      </action>
+      <action>
+        <name>Restart</name>
+        <command>RESTART</command>
+      </action>
+    </actions>
+    <commands>
+      <command>
+        <name>Set Motion Sensitivity</name>
+        <description>Change motion sensitivity toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Sensitivity</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Low</item>
+              <item>Medium</item>
+              <item>High</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Presence Detection Options</name>
+        <description>Change presence detection options toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Options</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Both</item>
+              <item>MMWave</item>
+              <item>Pir</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set AI Interference Source Self Identification</name>
+        <description>Change AI interference source self identification toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Self-Identification</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set AI Sensitivity Adaptive</name>
+        <description>Change AI sensitivity adaptive toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Adaptive</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Absence Delay Timer</name>
+        <description>Change absence delay timer toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Timer</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>10</minimum>
+            <maximum>300</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Pir Detection Interval</name>
+        <description>Change PIR detection interval toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Interval</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>2</minimum>
+            <maximum>300</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Temp and Humidity Sampling</name>
+        <description>Change temp and humidity sampling toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Sampling</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Off</item>
+              <item>Low</item>
+              <item>Medium</item>
+              <item>High</item>
+              <item>Custom</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Temp And Humidity Sampling Period</name>
+        <description>Change Temp And Humidity Sampling Period toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Period</name>
+            <type>RANGED_FLOAT</type>
+            <default></default>
+            <minimum>0.5</minimum>
+            <maximum>3600</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Temp Reporting Interval</name>
+        <description>Change temp reporting interval toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Interval</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>600</minimum>
+            <maximum>3600</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Temp Reporting Threshold</name>
+        <description>Change temp reporting threshold toPARAM1 °C on NAME</description>
+        <params>
+          <param>
+            <name>Threshold</name>
+            <type>RANGED_FLOAT</type>
+            <default></default>
+            <minimum>0.2</minimum>
+            <maximum>3</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Temp Reporting Mode</name>
+        <description>Change temp reporting mode toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Mode</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Threshold</item>
+              <item>Reporting Interval</item>
+              <item>Threshold and Interval</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Humidity Reporting Interval</name>
+        <description>Change humidity reporting interval toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Interval</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>600</minimum>
+            <maximum>3600</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Humidity Reporting Threshold</name>
+        <description>Change humidity reporting threshold toPARAM1 % on NAME</description>
+        <params>
+          <param>
+            <name>Threshold</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>2</minimum>
+            <maximum>10</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Humidity Report Mode</name>
+        <description>Change humidity report mode toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Mode</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Threshold</item>
+              <item>Reporting Interval</item>
+              <item>Threshold and Interval</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Light Sampling</name>
+        <description>Change light sampling toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Sampling</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Off</item>
+              <item>Low</item>
+              <item>Medium</item>
+              <item>High</item>
+              <item>Custom</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Light Sampling Period</name>
+        <description>Change light sampling period toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Period</name>
+            <type>RANGED_FLOAT</type>
+            <default></default>
+            <minimum>0.5</minimum>
+            <maximum>3600</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Light Reporting Interval</name>
+        <description>Change light reporting interval toPARAM1 seconds on NAME</description>
+        <params>
+          <param>
+            <name>Interval</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>20</minimum>
+            <maximum>3600</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Light Reporting Threshold</name>
+        <description>Change light reporting threshold toPARAM1 % on NAME</description>
+        <params>
+          <param>
+            <name>Threshold</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>3</minimum>
+            <maximum>20</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Light Report Mode</name>
+        <description>Change light report mode toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Mode</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>Threshold</item>
+              <item>Reporting Interval</item>
+              <item>Threshold and Interval</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Detection Range</name>
+        <description>Change detection range toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Range</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>0</minimum>
+            <maximum>16777215</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Led Disabled Night</name>
+        <description>Change LED disabled night toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Disabled</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Schedule Start Time</name>
+        <description>Change schedule start time toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Start Time</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set Schedule End Time</name>
+        <description>Change schedule end time toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>End Time</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Start Spatial Learning</name>
+        <description>Start spatial learning on NAME</description>
+      </command>
+      <command>
+        <name>Restart</name>
+        <description>Restart NAME</description>
+      </command>
+      <command>
+        <name>Identify</name>
+        <description>Start identifying NAME</description>
+      </command>
+      <command>
+        <name>Track Target Distance</name>
+        <description>Track target distance NAME</description>
+      </command>
+    </commands>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When The Power Outage Count Changes</name>
+      <description>When the NAME power outage count changes</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When The Motion Sensitivity Changes</name>
+      <description>When the NAME motion sensitivity changes</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Battery Level Changes</name>
+      <description>When the NAME battery level changes</description>
+      <sort_order>2</sort_order>
+    </event>
+    <event>
+      <id>4</id>
+      <name>When The Voltage Changes</name>
+      <description>When the NAME voltage changes</description>
+      <sort_order>3</sort_order>
+    </event>
+    <event>
+      <id>5</id>
+      <name>When The Presence Changes</name>
+      <description>When the NAME presence changes</description>
+      <sort_order>4</sort_order>
+    </event>
+    <event>
+      <id>6</id>
+      <name>When The Pir Detection Changes</name>
+      <description>When the NAME PIR detection changes</description>
+      <sort_order>5</sort_order>
+    </event>
+    <event>
+      <id>7</id>
+      <name>When The Presence Detection Options Change</name>
+      <description>When the NAME presence detection options change</description>
+      <sort_order>6</sort_order>
+    </event>
+    <event>
+      <id>8</id>
+      <name>When The AI Interference Source Self Identification Changes</name>
+      <description>When the NAME AI interference source self identification changes</description>
+      <sort_order>7</sort_order>
+    </event>
+    <event>
+      <id>9</id>
+      <name>When The AI Sensitivity Adaptive Changes</name>
+      <description>When the NAME AI sensitivity adaptive changes</description>
+      <sort_order>8</sort_order>
+    </event>
+    <event>
+      <id>10</id>
+      <name>When The Absence Delay Timer Changes</name>
+      <description>When the NAME absence delay timer changes</description>
+      <sort_order>9</sort_order>
+    </event>
+    <event>
+      <id>11</id>
+      <name>When The Pir Detection Interval Changes</name>
+      <description>When the NAME PIR detection interval changes</description>
+      <sort_order>10</sort_order>
+    </event>
+    <event>
+      <id>12</id>
+      <name>When The Illuminance Changes</name>
+      <description>When the NAME illuminance changes</description>
+      <sort_order>11</sort_order>
+    </event>
+    <event>
+      <id>13</id>
+      <name>When The Humidity Changes</name>
+      <description>When the NAME humidity changes</description>
+      <sort_order>12</sort_order>
+    </event>
+    <event>
+      <id>14</id>
+      <name>When The Temperature Changes</name>
+      <description>When the NAME temperature changes</description>
+      <sort_order>13</sort_order>
+    </event>
+    <event>
+      <id>15</id>
+      <name>When The Temp and Humidity Sampling Changes</name>
+      <description>When the NAME temp and humidity sampling changes</description>
+      <sort_order>14</sort_order>
+    </event>
+    <event>
+      <id>16</id>
+      <name>When The Temp And Humidity Sampling Period Changes</name>
+      <description>When the NAME Temp And Humidity Sampling Period changes</description>
+      <sort_order>15</sort_order>
+    </event>
+    <event>
+      <id>17</id>
+      <name>When The Temp Reporting Interval Changes</name>
+      <description>When the NAME temp reporting interval changes</description>
+      <sort_order>16</sort_order>
+    </event>
+    <event>
+      <id>18</id>
+      <name>When The Temp Reporting Threshold Changes</name>
+      <description>When the NAME temp reporting threshold changes</description>
+      <sort_order>17</sort_order>
+    </event>
+    <event>
+      <id>19</id>
+      <name>When The Temp Reporting Mode Changes</name>
+      <description>When the NAME temp reporting mode changes</description>
+      <sort_order>18</sort_order>
+    </event>
+    <event>
+      <id>20</id>
+      <name>When The Humidity Reporting Interval Changes</name>
+      <description>When the NAME humidity reporting interval changes</description>
+      <sort_order>19</sort_order>
+    </event>
+    <event>
+      <id>21</id>
+      <name>When The Humidity Reporting Threshold Changes</name>
+      <description>When the NAME humidity reporting threshold changes</description>
+      <sort_order>20</sort_order>
+    </event>
+    <event>
+      <id>22</id>
+      <name>When The Humidity Report Mode Changes</name>
+      <description>When the NAME humidity report mode changes</description>
+      <sort_order>21</sort_order>
+    </event>
+    <event>
+      <id>23</id>
+      <name>When The Light Sampling Changes</name>
+      <description>When the NAME light sampling changes</description>
+      <sort_order>22</sort_order>
+    </event>
+    <event>
+      <id>24</id>
+      <name>When The Light Sampling Period Changes</name>
+      <description>When the NAME light sampling period changes</description>
+      <sort_order>23</sort_order>
+    </event>
+    <event>
+      <id>25</id>
+      <name>When The Light Reporting Interval Changes</name>
+      <description>When the NAME light reporting interval changes</description>
+      <sort_order>24</sort_order>
+    </event>
+    <event>
+      <id>26</id>
+      <name>When The Light Reporting Threshold Changes</name>
+      <description>When the NAME light reporting threshold changes</description>
+      <sort_order>25</sort_order>
+    </event>
+    <event>
+      <id>27</id>
+      <name>When The Light Report Mode Changes</name>
+      <description>When the NAME light report mode changes</description>
+      <sort_order>26</sort_order>
+    </event>
+    <event>
+      <id>28</id>
+      <name>When The Target Distance Changes</name>
+      <description>When the NAME target distance changes</description>
+      <sort_order>27</sort_order>
+    </event>
+    <event>
+      <id>29</id>
+      <name>When The Detection Range Changes</name>
+      <description>When the NAME detection range changes</description>
+      <sort_order>28</sort_order>
+    </event>
+    <event>
+      <id>30</id>
+      <name>When The Led Disabled Night Changes</name>
+      <description>When the NAME LED disabled night changes</description>
+      <sort_order>29</sort_order>
+    </event>
+    <event>
+      <id>31</id>
+      <name>When The Schedule Start Time Changes</name>
+      <description>When the NAME schedule start time changes</description>
+      <sort_order>30</sort_order>
+    </event>
+    <event>
+      <id>32</id>
+      <name>When The Schedule End Time Changes</name>
+      <description>When the NAME schedule end time changes</description>
+      <sort_order>31</sort_order>
+    </event>
+    <event>
+      <id>33</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>32</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>NUMBER_POWER_OUTAGE_COUNT</name>
+      <type>NUMBER</type>
+      <condition_statement>Power Outage Count is</condition_statement>
+      <description>the Power Outage Count on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>LIST_MOTION_SENSITIVITY</name>
+      <type>LIST</type>
+      <condition_statement>Motion Sensitivity is</condition_statement>
+      <description>the Motion Sensitivity on NAME is LOGIC STRING</description>
+      <items>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+      </items>
+      <sort_order>1</sort_order>
+    </conditional>
+    <conditional>
+      <id>2</id>
+      <name>NUMBER_BATTERY_LEVEL</name>
+      <type>NUMBER</type>
+      <condition_statement>Battery Level is</condition_statement>
+      <description>the Battery Level on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>100</maximum>
+      <sort_order>2</sort_order>
+    </conditional>
+    <conditional>
+      <id>3</id>
+      <name>NUMBER_VOLTAGE</name>
+      <type>NUMBER</type>
+      <condition_statement>Voltage is</condition_statement>
+      <description>the Voltage on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>3</sort_order>
+    </conditional>
+    <conditional>
+      <id>4</id>
+      <name>BOOL_PRESENCE</name>
+      <type>BOOL</type>
+      <condition_statement>Presence is</condition_statement>
+      <description>the Presence on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>4</sort_order>
+    </conditional>
+    <conditional>
+      <id>5</id>
+      <name>BOOL_PIR_DETECTION</name>
+      <type>BOOL</type>
+      <condition_statement>PIR Detection is</condition_statement>
+      <description>the PIR Detection on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>5</sort_order>
+    </conditional>
+    <conditional>
+      <id>6</id>
+      <name>LIST_PRESENCE_DETECTION_OPTIONS</name>
+      <type>LIST</type>
+      <condition_statement>Presence Detection Options is</condition_statement>
+      <description>the Presence Detection Options on NAME is LOGIC STRING</description>
+      <items>
+        <item>Both</item>
+        <item>MMWave</item>
+        <item>Pir</item>
+      </items>
+      <sort_order>6</sort_order>
+    </conditional>
+    <conditional>
+      <id>7</id>
+      <name>BOOL_AI_INTERFERENCE_SOURCE_SELF_IDENTIFICATION</name>
+      <type>BOOL</type>
+      <condition_statement>AI Interference Source Self Identification is</condition_statement>
+      <description>the AI Interference Source Self Identification on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>7</sort_order>
+    </conditional>
+    <conditional>
+      <id>8</id>
+      <name>BOOL_AI_SENSITIVITY_ADAPTIVE</name>
+      <type>BOOL</type>
+      <condition_statement>AI Sensitivity Adaptive is</condition_statement>
+      <description>the AI Sensitivity Adaptive on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>8</sort_order>
+    </conditional>
+    <conditional>
+      <id>9</id>
+      <name>NUMBER_ABSENCE_DELAY_TIMER</name>
+      <type>NUMBER</type>
+      <condition_statement>Absence Delay Timer is</condition_statement>
+      <description>the Absence Delay Timer on NAME is LOGIC INTEGER</description>
+      <minimum>10</minimum>
+      <maximum>300</maximum>
+      <sort_order>9</sort_order>
+    </conditional>
+    <conditional>
+      <id>10</id>
+      <name>NUMBER_PIR_DETECTION_INTERVAL</name>
+      <type>NUMBER</type>
+      <condition_statement>PIR Detection Interval is</condition_statement>
+      <description>the PIR Detection Interval on NAME is LOGIC INTEGER</description>
+      <minimum>2</minimum>
+      <maximum>300</maximum>
+      <sort_order>10</sort_order>
+    </conditional>
+    <conditional>
+      <id>11</id>
+      <name>NUMBER_ILLUMINANCE</name>
+      <type>NUMBER</type>
+      <condition_statement>Illuminance is</condition_statement>
+      <description>the Illuminance on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>11</sort_order>
+    </conditional>
+    <conditional>
+      <id>12</id>
+      <name>NUMBER_HUMIDITY</name>
+      <type>NUMBER</type>
+      <condition_statement>Humidity is</condition_statement>
+      <description>the Humidity on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>12</sort_order>
+    </conditional>
+    <conditional>
+      <id>13</id>
+      <name>NUMBER_TEMPERATURE</name>
+      <type>NUMBER</type>
+      <condition_statement>Temperature is</condition_statement>
+      <description>the Temperature on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>13</sort_order>
+    </conditional>
+    <conditional>
+      <id>14</id>
+      <name>LIST_TEMP_AND_HUMIDITY_SAMPLING</name>
+      <type>LIST</type>
+      <condition_statement>Temp and Humidity Sampling is</condition_statement>
+      <description>the Temp and Humidity Sampling on NAME is LOGIC STRING</description>
+      <items>
+        <item>Off</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Custom</item>
+      </items>
+      <sort_order>14</sort_order>
+    </conditional>
+    <conditional>
+      <id>15</id>
+      <name>NUMBER_TEMP_AND_HUMIDITY_SAMPLING_PERIOD</name>
+      <type>NUMBER</type>
+      <condition_statement>Temp And Humidity Sampling Period is</condition_statement>
+      <description>the Temp And Humidity Sampling Period on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>3600</maximum>
+      <sort_order>15</sort_order>
+    </conditional>
+    <conditional>
+      <id>16</id>
+      <name>NUMBER_TEMP_REPORTING_INTERVAL</name>
+      <type>NUMBER</type>
+      <condition_statement>Temp Reporting Interval is</condition_statement>
+      <description>the Temp Reporting Interval on NAME is LOGIC INTEGER</description>
+      <minimum>600</minimum>
+      <maximum>3600</maximum>
+      <sort_order>16</sort_order>
+    </conditional>
+    <conditional>
+      <id>17</id>
+      <name>NUMBER_TEMP_REPORTING_THRESHOLD</name>
+      <type>NUMBER</type>
+      <condition_statement>Temp Reporting Threshold is</condition_statement>
+      <description>the Temp Reporting Threshold on NAME name is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>3</maximum>
+      <sort_order>17</sort_order>
+    </conditional>
+    <conditional>
+      <id>18</id>
+      <name>LIST_TEMP_REPORTING_MODE</name>
+      <type>LIST</type>
+      <condition_statement>Temp Reporting Mode is</condition_statement>
+      <description>the Temp Reporting Mode on NAME is LOGIC STRING</description>
+      <items>
+        <item>Threshold</item>
+        <item>Reporting interval</item>
+        <item>Threshold and interval</item>
+      </items>
+      <sort_order>18</sort_order>
+    </conditional>
+    <conditional>
+      <id>19</id>
+      <name>NUMBER_HUMIDITY_REPORTING_INTERVAL</name>
+      <type>NUMBER</type>
+      <condition_statement>Humidity Reporting Interval is</condition_statement>
+      <description>the Humidity Reporting Interval on NAME is LOGIC INTEGER</description>
+      <minimum>600</minimum>
+      <maximum>3600</maximum>
+      <sort_order>19</sort_order>
+    </conditional>
+    <conditional>
+      <id>20</id>
+      <name>NUMBER_HUMIDITY_REPORTING_THRESHOLD</name>
+      <type>NUMBER</type>
+      <condition_statement>Humidity Reporting Threshold is</condition_statement>
+      <description>the Humidity Reporting Threshold on NAME is LOGIC INTEGER</description>
+      <minimum>2</minimum>
+      <maximum>10</maximum>
+      <sort_order>20</sort_order>
+    </conditional>
+    <conditional>
+      <id>21</id>
+      <name>LIST_HUMIDITY_REPORT_MODE</name>
+      <type>LIST</type>
+      <condition_statement>Humidity Report Mode is</condition_statement>
+      <description>the Humidity Report Mode on NAME is LOGIC STRING</description>
+      <items>
+        <item>Threshold</item>
+        <item>Reporting interval</item>
+        <item>Threshold and interval</item>
+      </items>
+      <sort_order>21</sort_order>
+    </conditional>
+    <conditional>
+      <id>22</id>
+      <name>LIST_LIGHT_SAMPLING</name>
+      <type>LIST</type>
+      <condition_statement>Light Sampling is</condition_statement>
+      <description>the Light Sampling on NAME is LOGIC STRING</description>
+      <items>
+        <item>Off</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Custom</item>
+      </items>
+      <sort_order>22</sort_order>
+    </conditional>
+    <conditional>
+      <id>23</id>
+      <name>NUMBER_LIGHT_SAMPLING_PERIOD</name>
+      <type>NUMBER</type>
+      <condition_statement>Light Sampling Period is</condition_statement>
+      <description>the Light Sampling Period on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>3600</maximum>
+      <sort_order>23</sort_order>
+    </conditional>
+    <conditional>
+      <id>24</id>
+      <name>NUMBER_LIGHT_REPORTING_INTERVAL</name>
+      <type>NUMBER</type>
+      <condition_statement>Light Reporting Interval is</condition_statement>
+      <description>the Light Reporting Interval on NAME is LOGIC INTEGER</description>
+      <minimum>20</minimum>
+      <maximum>3600</maximum>
+      <sort_order>24</sort_order>
+    </conditional>
+    <conditional>
+      <id>25</id>
+      <name>NUMBER_LIGHT_REPORTING_THRESHOLD</name>
+      <type>NUMBER</type>
+      <condition_statement>Light Reporting Threshold is</condition_statement>
+      <description>the Light Reporting Threshold on NAME is LOGIC INTEGER</description>
+      <minimum>3</minimum>
+      <maximum>20</maximum>
+      <sort_order>25</sort_order>
+    </conditional>
+    <conditional>
+      <id>26</id>
+      <name>LIST_LIGHT_REPORT_MODE</name>
+      <type>LIST</type>
+      <condition_statement>Light Report Mode is</condition_statement>
+      <description>the Light Report Mode on NAME is LOGIC STRING</description>
+      <items>
+        <item>Threshold</item>
+        <item>Reporting interval</item>
+        <item>Threshold and interval</item>
+      </items>
+      <sort_order>26</sort_order>
+    </conditional>
+    <conditional>
+      <id>27</id>
+      <name>NUMBER_TARGET_DISTANCE</name>
+      <type>NUMBER</type>
+      <condition_statement>Target Distance is</condition_statement>
+      <description>the Target Distance on NAME is LOGIC INTEGER</description>
+      <minimum>-50</minimum>
+      <maximum>122</maximum>
+      <sort_order>27</sort_order>
+    </conditional>
+    <conditional>
+      <id>28</id>
+      <name>NUMBER_DETECTION_RANGE</name>
+      <type>NUMBER</type>
+      <condition_statement>Detection Range is</condition_statement>
+      <description>the Detection Range on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>16777215</maximum>
+      <sort_order>28</sort_order>
+    </conditional>
+    <conditional>
+      <id>29</id>
+      <name>BOOL_LED_DISABLED_NIGHT</name>
+      <type>BOOL</type>
+      <condition_statement>LED Disabled Night is</condition_statement>
+      <description>the LED Disabled Night on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>29</sort_order>
+    </conditional>
+    <conditional>
+      <id>30</id>
+      <name>STRING_SCHEDULE_START_TIME</name>
+      <type>STRING</type>
+      <condition_statement>Schedule Start Time is</condition_statement>
+      <description>the Schedule Start Time on NAME is LOGIC STRING</description>
+      <sort_order>30</sort_order>
+    </conditional>
+    <conditional>
+      <id>31</id>
+      <name>STRING_SCHEDULE_END_TIME</name>
+      <type>STRING</type>
+      <condition_statement>Schedule End Time is</condition_statement>
+      <description>the Schedule End Time on NAME is LOGIC STRING</description>
+      <sort_order>31</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <id>1</id>
+      <facing>6</facing>
+      <connectionname>Presence Sensor</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <audiosource>False</audiosource>
+      <videosource>False</videosource>
+      <linelevel>False</linelevel>
+      <classes>
+        <class>
+          <classname>CONTACT_SENSOR</classname>
+        </class>
+      </classes>
+      <hidden>False</hidden>
+    </connection>
+    <connection>
+      <id>2</id>
+      <facing>6</facing>
+      <connectionname>Motion Sensor</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <audiosource>False</audiosource>
+      <videosource>False</videosource>
+      <linelevel>False</linelevel>
+      <classes>
+        <class>
+          <classname>CONTACT_SENSOR</classname>
+        </class>
+      </classes>
+      <hidden>False</hidden>
+    </connection>
+    <connection>
+      <id>3</id>
+      <facing>6</facing>
+      <connectionname>Temperature</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <classes>
+        <class>
+          <classname>TEMPERATURE_VALUE</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>4</id>
+      <facing>6</facing>
+      <connectionname>Humidity</connectionname>
+      <type>1</type>
+      <consumer>False</consumer>
+      <classes>
+        <class>
+          <classname>HUMIDITY_VALUE</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_AQARA_PS-S04D</proxy>
+  </proxies>
+</devicedata>
