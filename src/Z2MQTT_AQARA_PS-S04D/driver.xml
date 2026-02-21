@@ -8,7 +8,7 @@
   <creator>Solutions Logiciels Breton</creator>
   <created>10/19/2025 6:16 AM</created>
   <modified>10/19/2025 6:16 PM</modified>
-  <version>23</version>
+  <version>25</version>
   <control>lua_gen</control>
   <driver>DriverWorks</driver>
   <config>
@@ -24,6 +24,11 @@
         <type>STRING</type>
         <default>Unknown</default>
         <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Motion</name>
+        <type>LABEL</type>
+        <default>--- Motion ---</default>
       </property>
       <property>
         <name>Presence</name>
@@ -96,6 +101,26 @@
         <description>Time in seconds (10-300)</description>
         <minimum>10</minimum>
         <maximum>300</maximum>
+      </property>
+      <property>
+        <name>Target Distance</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Detection Range</name>
+        <type>RANGED_INTEGER</type>
+        <default>0</default>
+        <readonly>false</readonly>
+        <description>Range (0-16777215)</description>
+        <minimum>0</minimum>
+        <maximum>16777215</maximum>
+      </property>
+      <property>
+        <name>Atmospheric</name>
+        <type>LABEL</type>
+        <default>--- Atmospheric ---</default>
       </property>
       <property>
         <name>Illuminance</name>
@@ -247,19 +272,9 @@
         <readonly>false</readonly>
       </property>
       <property>
-        <name>Target Distance</name>
-        <type>STRING</type>
-        <default>Unknown</default>
-        <readonly>true</readonly>
-      </property>
-      <property>
-        <name>Detection Range</name>
-        <type>RANGED_INTEGER</type>
-        <default>0</default>
-        <readonly>false</readonly>
-        <description>Range (0-16777215)</description>
-        <minimum>0</minimum>
-        <maximum>16777215</maximum>
+        <name>LED</name>
+        <type>LABEL</type>
+        <default>--- LED ---</default>
       </property>
       <property>
         <name>Led Disabled Night</name>
@@ -286,6 +301,11 @@
         <description>In HH:MM format</description>
       </property>
       <property>
+        <name>Power</name>
+        <type>LABEL</type>
+        <default>--- Power ---</default>
+      </property>
+      <property>
         <name>Battery Level</name>
         <type>STRING</type>
         <default>Unknown</default>
@@ -304,6 +324,11 @@
         <readonly>true</readonly>
       </property>
       <property>
+        <name>Connection</name>
+        <type>LABEL</type>
+        <default>--- Connection ---</default>
+      </property>
+      <property>
         <name>Connection Status</name>
         <type>STRING</type>
         <default>Unknown</default>
@@ -314,6 +339,11 @@
         <type>STRING</type>
         <default>Unknown</default>
         <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Logging</name>
+        <type>LABEL</type>
+        <default>--- Logging ---</default>
       </property>
       <property>
         <name>Log Level</name>
