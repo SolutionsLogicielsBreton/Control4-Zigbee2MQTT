@@ -1,0 +1,505 @@
+<devicedata>
+  <copyright>Copyright 2026 Solutions Logiciels Breton. All Rights Reserved.</copyright>
+  <manufacturer>Solutions Logiciels Breton</manufacturer>
+  <name>Z2MQTT Shelly S4SW-001P8EU</name>
+  <small>devices_sm\wireless_outlet.gif</small>
+  <large>devices_lg\wireless_outlet.gif</large>
+  <model>Shelly 1PM Mini Gen 4</model>
+  <creator>Solutions Logiciels Breton</creator>
+  <created>10/19/2026 6:16 AM</created>
+  <modified>10/19/2026 6:16 PM</modified>
+  <version>6</version>
+  <control>lua_gen</control>
+  <driver>DriverWorks</driver>
+  <config>
+    <script file="driver.lua"></script>
+    <properties>
+      <property>
+        <name>Zigbee Device</name>
+        <type>DYNAMIC_LIST</type>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>IEEE Address</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>SECTION_SWITCH</name>
+        <type>LABEL</type>
+        <default>---SWITCH STATE ---</default>
+      </property>
+      <property>
+        <name>State</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>SECTION_ELECTRICAL_MEASUREMENTS</name>
+        <type>LABEL</type>
+        <default>--- ELECTRICAL MEASUREMENTS ---</default>
+      </property>
+      <property>
+        <name>AC Frequency</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>Current</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>Energy</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>Power</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>Produced Energy</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>Voltage</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>SECTION_NETWORK_CONFIGURATION</name>
+        <type>LABEL</type>
+        <default>--- NETWORK CONFIGURATION ---</default>
+      </property>
+      <property>
+        <name>WiFi Status</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>IP Address</name>
+        <type>STRING</type>
+        <readonly>true</readonly>
+        <default>Unknown</default>
+      </property>
+      <property>
+        <name>DHCP Enabled</name>
+        <type>LIST</type>
+        <items>
+          <item>True</item>
+          <item>False</item>
+        </items>
+        <default>True</default>
+        <readonly>false</readonly>
+      </property>
+      <property>
+        <name>Connection Status</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Connection Quality</name>
+        <type>STRING</type>
+        <default>Unknown</default>
+        <readonly>true</readonly>
+      </property>
+      <property>
+        <name>Log Level</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Warn</default>
+        <items>
+          <item>Off</item>
+          <item>Fatal</item>
+          <item>Error</item>
+          <item>Warn</item>
+          <item>Info</item>
+          <item>Debug</item>
+          <item>Trace</item>
+        </items>
+      </property>
+      <property>
+        <name>Log Mode</name>
+        <type>LIST</type>
+        <readonly>false</readonly>
+        <default>Off</default>
+        <items>
+          <item>Off</item>
+          <item>Print</item>
+          <item>Log</item>
+          <item>Print and Log</item>
+        </items>
+      </property>
+    </properties>
+    <commands>
+      <command>
+        <name>Set State</name>
+        <description>Set State toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>State</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>On</item>
+              <item>Off</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Turn on with on time</name>
+        <description>Turn on NAME forPARAM1 seconds</description>
+        <params>
+          <param>
+            <name>On Time (seconds)</name>
+            <type>RANGED_INTEGER</type>
+            <default></default>
+            <minimum>0</minimum>
+            <maximum>999999</maximum>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Toggle</name>
+        <description>Toggles NAME On or Off</description>
+      </command>
+      <command>
+        <name>Set DHCP Enabled</name>
+        <description>Change DHCP toPARAM1 on NAME</description>
+        <params>
+          <param>
+            <name>Enabled</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+        </params>
+      </command>
+      <command>
+        <name>Set WiFi Config</name>
+        <description>Set WiFi configuration on NAME</description>
+        <params>
+          <param>
+            <name>Enabled</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+          <param>
+            <name>SSID</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Password</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Static IP</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Net Mask</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Gateway</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Name Server</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+        </params>
+      </command>
+    </commands>
+    <actions>
+      <action>
+        <name>Set Wifi Config</name>
+        <command>SET_WIFI_CONFIG</command>
+        <params>
+          <param>
+            <name>Enabled</name>
+            <type>LIST</type>
+            <default></default>
+            <items>
+              <item>True</item>
+              <item>False</item>
+            </items>
+          </param>
+          <param>
+            <name>SSID</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Password</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Static IP</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Net Mask</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Gateway</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+          <param>
+            <name>Name Server</name>
+            <type>STRING</type>
+            <default></default>
+          </param>
+        </params>
+      </action>
+    </actions>
+  </config>
+  <events>
+    <event>
+      <id>1</id>
+      <name>When Turned On</name>
+      <description>When the NAME is turned on</description>
+      <sort_order>0</sort_order>
+    </event>
+    <event>
+      <id>2</id>
+      <name>When Turned Off</name>
+      <description>When the NAME is turned off</description>
+      <sort_order>1</sort_order>
+    </event>
+    <event>
+      <id>3</id>
+      <name>When The Connection Status Changes</name>
+      <description>When the NAME connection status changes</description>
+      <sort_order>2</sort_order>
+    </event>
+    <event>
+      <id>4</id>
+      <name>When AC Frequency Changes</name>
+      <description>When the NAME AC frequency changes</description>
+      <sort_order>3</sort_order>
+    </event>
+    <event>
+      <id>5</id>
+      <name>When Current Changes</name>
+      <description>When the NAME current changes</description>
+      <sort_order>4</sort_order>
+    </event>
+    <event>
+      <id>6</id>
+      <name>When DHCP Enabled Changes</name>
+      <description>When the NAME DHCP enabled status changes</description>
+      <sort_order>5</sort_order>
+    </event>
+    <event>
+      <id>7</id>
+      <name>When Energy Changes</name>
+      <description>When the NAME energy consumption changes</description>
+      <sort_order>6</sort_order>
+    </event>
+    <event>
+      <id>8</id>
+      <name>When IP Address Changes</name>
+      <description>When the NAME IP address changes</description>
+      <sort_order>7</sort_order>
+    </event>
+    <event>
+      <id>9</id>
+      <name>When Power Changes</name>
+      <description>When the NAME power consumption changes</description>
+      <sort_order>8</sort_order>
+    </event>
+    <event>
+      <id>10</id>
+      <name>When Produced Energy Changes</name>
+      <description>When the NAME produced energy changes</description>
+      <sort_order>9</sort_order>
+    </event>
+    <event>
+      <id>11</id>
+      <name>When Voltage Changes</name>
+      <description>When the NAME voltage changes</description>
+      <sort_order>10</sort_order>
+    </event>
+    <event>
+      <id>12</id>
+      <name>When WiFi Status Changes</name>
+      <description>When the NAME WiFi status changes</description>
+      <sort_order>11</sort_order>
+    </event>
+  </events>
+  <conditionals>
+    <conditional>
+      <id>0</id>
+      <name>BOOL_STATE</name>
+      <type>BOOL</type>
+      <condition_statement>State is</condition_statement>
+      <description>the State on NAME is STRING</description>
+      <true_text>On</true_text>
+      <false_text>Off</false_text>
+      <sort_order>0</sort_order>
+    </conditional>
+    <conditional>
+      <id>1</id>
+      <name>BOOL_CONNECTION_STATUS</name>
+      <type>BOOL</type>
+      <condition_statement>Connection Status is</condition_statement>
+      <description>the Connection Status on NAME is STRING</description>
+      <true_text>Online</true_text>
+      <false_text>Offline</false_text>
+      <sort_order>1</sort_order>
+    </conditional>
+    <conditional>
+      <id>2</id>
+      <name>NUM_AC_FREQUENCY</name>
+      <type>NUMBER</type>
+      <condition_statement>AC Frequency is</condition_statement>
+      <description>the AC Frequency on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>2</sort_order>
+    </conditional>
+    <conditional>
+      <id>3</id>
+      <name>NUM_CURRENT</name>
+      <type>NUMBER</type>
+      <condition_statement>Current is</condition_statement>
+      <description>the Current on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>3</sort_order>
+    </conditional>
+    <conditional>
+      <id>4</id>
+      <name>BOOL_DHCP_ENABLED</name>
+      <type>BOOL</type>
+      <condition_statement>DHCP Enabled is</condition_statement>
+      <description>the DHCP Enabled on NAME is STRING</description>
+      <true_text>True</true_text>
+      <false_text>False</false_text>
+      <sort_order>4</sort_order>
+    </conditional>
+    <conditional>
+      <id>5</id>
+      <name>NUM_ENERGY</name>
+      <type>NUMBER</type>
+      <condition_statement>Energy is</condition_statement>
+      <description>the Energy on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>5</sort_order>
+    </conditional>
+    <conditional>
+      <id>6</id>
+      <name>STR_IP_ADDRESS</name>
+      <type>STRING</type>
+      <condition_statement>IP Address is</condition_statement>
+      <description>the IP Address on NAME is LOGIC STRING</description>
+      <sort_order>6</sort_order>
+    </conditional>
+    <conditional>
+      <id>7</id>
+      <name>NUM_POWER</name>
+      <type>NUMBER</type>
+      <condition_statement>Power is</condition_statement>
+      <description>the Power on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>7</sort_order>
+    </conditional>
+    <conditional>
+      <id>8</id>
+      <name>NUM_PRODUCED_ENERGY</name>
+      <type>NUMBER</type>
+      <condition_statement>Produced Energy is</condition_statement>
+      <description>the Produced Energy on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>8</sort_order>
+    </conditional>
+    <conditional>
+      <id>9</id>
+      <name>NUM_VOLTAGE</name>
+      <type>NUMBER</type>
+      <condition_statement>Voltage is</condition_statement>
+      <description>the Voltage on NAME is LOGIC INTEGER</description>
+      <minimum>0</minimum>
+      <maximum>9999999</maximum>
+      <sort_order>9</sort_order>
+    </conditional>
+    <conditional>
+      <id>10</id>
+      <name>STR_WIFI_STATUS</name>
+      <type>STRING</type>
+      <condition_statement>WiFi Status is</condition_statement>
+      <description>the WiFi Status on NAME is LOGIC STRING</description>
+      <sort_order>10</sort_order>
+    </conditional>
+  </conditionals>
+  <connections>
+    <connection>
+      <type>1</type>
+      <id>1</id>
+      <audiosource>false</audiosource>
+      <videosource>false</videosource>
+      <connectionname>Switch</connectionname>
+      <facing>6</facing>
+      <consumer>false</consumer>
+      <linelevel>false</linelevel>
+      <classes>
+        <class>
+          <classname>RELAY</classname>
+        </class>
+      </classes>
+    </connection>
+    <connection>
+      <id>999</id>
+      <facing>6</facing>
+      <type>1</type>
+      <connectionname>Zigbee to MQTT Link</connectionname>
+      <consumer>True</consumer>
+      <classes>
+        <class>
+          <classname>ZIG_TO_MQTT_LINK</classname>
+          <autobind>true</autobind>
+        </class>
+      </classes>
+    </connection>
+  </connections>
+  <combo>true</combo>
+  <proxies>
+    <proxy>Z2MQTT_SHELLY_S4SW-001P8EU</proxy>
+  </proxies>
+</devicedata>
