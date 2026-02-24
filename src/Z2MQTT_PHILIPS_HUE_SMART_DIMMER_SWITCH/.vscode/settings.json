@@ -1,0 +1,22 @@
+{
+    "Lua.diagnostics.globals": [
+        "Properties",
+        "C4",
+        "gDebugTimer",
+        "gAvailableZigbeeDeviceNameToZigbeeId",
+        "gDeviceData",
+        "gLogName",
+        "gTopButtonClickTimer",
+        "gDimUpButtonClickTimer",
+        "gDimDownButtonClickTimer",
+        "gBottomButtonClickTimer",
+        "gTopButtonLastAction",
+        "gDimUpButtonLastAction",
+        "gDimDownButtonLastAction",
+        "gBottomButtonLastAction",
+        "gButtons",
+        "gButtonHandler",
+        "gProxyId",
+        "gDeviceName"
+    ]
+}
