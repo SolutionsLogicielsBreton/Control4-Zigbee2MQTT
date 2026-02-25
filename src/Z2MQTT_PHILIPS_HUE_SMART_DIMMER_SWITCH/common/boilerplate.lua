@@ -12,6 +12,9 @@ function OnDriverDestroyed (dit)
 end
 
 function ON_DRIVER_LATEINIT.Boilerplate (dit)
+    local deviceId = tonumber(C4:GetDeviceID())
+    gProxyId = tonumber(C4:GetProxyDevicesById(deviceId))
+
     -- Logging
     pcall(function() 
         Dbg = Log.Create()
@@ -34,9 +37,6 @@ function ON_DRIVER_LATEINIT.Boilerplate (dit)
     if(gDeviceData.zigbee_device_id ~= nil) then
         C4:SendToProxy(999, "SET_SELECTED_DEVICE", { DEVICE_ID = C4:GetDeviceID(), ZIGBEE_DEVICE = tostring(gDeviceData.zigbee_device_id) })
     end
-
-    local deviceId = tonumber(C4:GetDeviceID())
-    gProxyId = tonumber(C4:GetProxyDevicesById(deviceId))
 
     Dbg:Debug("Base OnDriverLateInit done.")
 end

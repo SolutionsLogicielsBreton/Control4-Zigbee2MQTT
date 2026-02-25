@@ -8,7 +8,7 @@
   <creator>Solutions Logiciels Breton</creator>
   <created>10/19/2026 6:16 AM</created>
   <modified>10/19/2026 6:16 PM</modified>
-  <version>4</version>
+  <version>6</version>
   <control>lua_gen</control>
   <driver>DriverWorks</driver>
   <config>
@@ -72,7 +72,7 @@
       </property>
     </properties>
   </config>
-  <events>
+  <events>  
     <event>
       <id>1</id>
       <name>When Top Button Is Pressed</name>
@@ -81,7 +81,7 @@
     </event>
     <event>
       <id>2</id>
-      <name>When Top Button Press Is Released</name>
+      <name>When Top Button Is Released</name>
       <description>The button press is released</description>
       <sort_order>1</sort_order>
     </event>
@@ -93,8 +93,8 @@
     </event>
     <event>
       <id>4</id>
-      <name>When Top Button Hold Is Released</name>
-      <description>The button hold is released</description>
+      <name>When Top Button Is Clicked</name>
+      <description>The button is clicked</description>
       <sort_order>3</sort_order>
     </event>
     <event>
@@ -105,7 +105,7 @@
     </event>
     <event>
       <id>6</id>
-      <name>When Dim Up Button Press Is Released</name>
+      <name>When Dim Up Button Is Released</name>
       <description>The button press is released</description>
       <sort_order>5</sort_order>
     </event>
@@ -117,8 +117,8 @@
     </event>
     <event>
       <id>8</id>
-      <name>When Dim Up Button Hold Is Released</name>
-      <description>The button hold is released</description>
+      <name>When Dim Up Button Is Clicked</name>
+      <description>The button is clicked</description>
       <sort_order>7</sort_order>
     </event>
     <event>
@@ -129,7 +129,7 @@
     </event>
     <event>
       <id>10</id>
-      <name>When Dim Down Button Press Is Released</name>
+      <name>When Dim Down Button Is Released</name>
       <description>The button press is released</description>
       <sort_order>9</sort_order>
     </event>
@@ -141,8 +141,8 @@
     </event>
     <event>
       <id>12</id>
-      <name>When Dim Down Button Hold Is Released</name>
-      <description>The button hold is released</description>
+      <name>When Dim Down Button Is Clicked</name>
+      <description>The button is clicked</description>
       <sort_order>11</sort_order>
     </event>
     <event>
@@ -153,7 +153,7 @@
     </event>
     <event>
       <id>14</id>
-      <name>When Bottom Button Press Is Released</name>
+      <name>When Bottom Button Is Released</name>
       <description>The button press is released</description>
       <sort_order>13</sort_order>
     </event>
@@ -165,8 +165,8 @@
     </event>
     <event>
       <id>16</id>
-      <name>When Bottom Button Hold Is Released</name>
-      <description>The button hold is released</description>
+      <name>When Bottom Button Is Clicked</name>
+      <description>The button is clicked</description>
       <sort_order>15</sort_order>
     </event>
     <event>
@@ -182,6 +182,7 @@
       <sort_order>17</sort_order>
     </event>
   </events>
+
   <conditionals>
     <conditional>
       <id>0</id>

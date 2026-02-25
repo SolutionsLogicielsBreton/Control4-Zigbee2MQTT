@@ -9,44 +9,35 @@ gButtons = {
     gButtonHandler.new({
         id = 1,
         pressEvent = "When Top Button Is Pressed",
-        releaseEvent = "When Top Button Press Is Released",
+        releaseEvent = "When Top Button Is Released",
         holdEvent = "When Top Button Is Held",
-        holdReleaseEvent = "When Top Button Hold Is Released"
+        clickEvent = "When Top Button Is Clicked"
     }),
     gButtonHandler.new({
         id = 2,
         pressEvent = "When Dim Up Button Is Pressed",
-        releaseEvent = "When Dim Up Button Press Is Released",
+        releaseEvent = "When Dim Up Button Is Released",
         holdEvent = "When Dim Up Button Is Held",
-        holdReleaseEvent = "When Dim Up Button Hold Is Released"
+        clickEvent = "When Dim Up Button Is Clicked"
     }),
     gButtonHandler.new({
         id = 3,
         pressEvent = "When Dim Down Button Is Pressed",
-        releaseEvent = "When Dim Down Button Press Is Released",
+        releaseEvent = "When Dim Down Button Is Released",
         holdEvent = "When Dim Down Button Is Held",
-        holdReleaseEvent = "When Dim Down Button Hold Is Released"
+        clickEvent = "When Dim Down Button Is Clicked"
     }),
     gButtonHandler.new({
         id = 4,
         pressEvent = "When Bottom Button Is Pressed",
-        releaseEvent = "When Bottom Button Press Is Released",
+        releaseEvent = "When Bottom Button Is Released",
         holdEvent = "When Bottom Button Is Held",
-        holdReleaseEvent = "When Bottom Button Hold Is Released"
+        clickEvent = "When Bottom Button Is Clicked"
     })
 }
 
 -- NAME USED FOR LOGGING
 gLogName = "Z2MQTT_PHILIPS_HUE_SMART_DIMMER_SWITCH"
-gTopButtonClickTimer = nil
-gDimUpButtonClickTimer = nil
-gDimDownButtonClickTimer = nil
-gBottomButtonClickTimer = nil
-
-gTopButtonLastAction = nil
-gDimUpButtonLastAction = nil
-gDimDownButtonLastAction = nil
-gBottomButtonLastAction = nil
 
 function ON_DRIVER_LATEINIT.DRIVER (dit)
     C4:AddVariable("BATTERY_LEVEL", Properties["Battery Level"] ~= "Unknown" and tonumber(Properties["Battery Level"]) or 0, "NUMBER")

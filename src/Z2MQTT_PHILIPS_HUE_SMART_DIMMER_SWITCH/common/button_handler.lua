@@ -9,8 +9,8 @@ function ButtonHandler.new(buttonConfig)
     self.buttonId = buttonConfig.id
     self.pressEvent = buttonConfig.pressEvent
     self.releaseEvent = buttonConfig.releaseEvent
-    self.holdReleaseEvent = buttonConfig.holdReleaseEvent
     self.holdEvent = buttonConfig.holdEvent
+    self.clickEvent = buttonConfig.clickEvent
 
     self.lastAction = nil
     self.clickTimer = nil
@@ -31,13 +31,14 @@ function ButtonHandler:handleAction(action)
 
         if(self.clickTimer ~= nil) then
             self:cancelClickTimer()
+            C4:FireEvent(self.clickEvent)
             C4:SendToProxy(self.buttonId, "DO_CLICK", {}, "COMMAND")
         else
             C4:SendToProxy(self.buttonId, "DO_RELEASE", {}, "COMMAND")
         end
     elseif (self.lastAction ~= action and action == "hold_release") then
         self.lastAction = action
-        C4:FireEvent(self.holdReleaseEvent)
+        C4:FireEvent(self.releaseEvent)
         C4:SendToProxy(self.buttonId, "DO_RELEASE", {}, "COMMAND")
     elseif (self.lastAction ~= action and action == "hold") then
         self.lastAction = action
