@@ -1,0 +1,16 @@
+{
+    "Lua.diagnostics.globals": [
+        "Properties",
+        "C4",
+        "gDebugTimer",
+        "gAvailableZigbeeDeviceNameToZigbeeId",
+        "gDeviceData",
+        "gLogName",
+        "gButtons",
+        "gButtonHandler",
+        "gProxyId",
+        "gDeviceName",
+        "gDial",
+        "gDialHandler"
+    ]
+}
