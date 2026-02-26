@@ -128,7 +128,7 @@ function EX_CMD.Z2M_DEVICE_SYNC(tParams)
                     if (DEVICE_SYNC[deviceSyncFunc] ~= nil and type(DEVICE_SYNC[deviceSyncFunc]) == "function") then
                         status, ret = pcall(DEVICE_SYNC[deviceSyncFunc], value)
                     else
-                        Dbg:Info("DeviceSync: Unhandled property = " .. deviceSyncFunc)
+                        Dbg:Trace("DeviceSync: Unhandled property = " .. deviceSyncFunc)
                         status = true
                     end
 
@@ -138,7 +138,7 @@ function EX_CMD.Z2M_DEVICE_SYNC(tParams)
                 end
             else
                 pcall(function()
-                    Dbg:Trace("[Z2M_DEVICE_SYNC] Failed to decode JSON: " .. tParams["DEVICE"])
+                    Dbg:Error("[Z2M_DEVICE_SYNC] Failed to decode JSON: " .. tParams["DEVICE"])
                 end)
             end
         end

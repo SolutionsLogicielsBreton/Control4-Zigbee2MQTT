@@ -1,6 +1,9 @@
 gDebugTimer = nil
 DEVICE_SYNC = {}
 CONDITIONALS = {}
+gAvailableZigbeeDeviceNameToZigbeeId = {}
+gProxyId = nil
+gDeviceName = nil
 
 function OnDriverInit (dit)
 end
@@ -9,6 +12,9 @@ function OnDriverDestroyed (dit)
 end
 
 function ON_DRIVER_LATEINIT.Boilerplate (dit)
+    local deviceId = tonumber(C4:GetDeviceID())
+    gProxyId = tonumber(C4:GetProxyDevicesById(deviceId))
+
     -- Logging
     pcall(function() 
         Dbg = Log.Create()
@@ -52,6 +58,7 @@ function OPC.Zigbee_Device(zigbeeDeviceName)
         C4:UpdateProperty("IEEE Address", gDeviceData.zigbee_device_id)
         C4:PersistSetValue("DeviceData", gDeviceData, false)
 	    C4:SendToProxy(999, "SET_SELECTED_DEVICE", { DEVICE_ID = C4:GetDeviceID(), ZIGBEE_DEVICE = tostring(gAvailableZigbeeDeviceNameToZigbeeId[zigbeeDeviceName]) })
+
         Dbg:Debug("Sent selected device: " .. gAvailableZigbeeDeviceNameToZigbeeId[zigbeeDeviceName])
     else
         Dbg:Debug("Ignoring device binding: Unknown Zigbee Device")
@@ -98,6 +105,12 @@ function EX_CMD.Z2M_DEVICE_SYNC(tParams)
             end)
 
             if (success and zDeviceState ~= nil and zDeviceState.z2m_state ~= nil) then
+                if(zDeviceState.friendly_name ~= nil and gDeviceName ~= zDeviceState.friendly_name) then
+                    C4:RenameDevice(gProxyId, zDeviceState.friendly_name)
+                    gDeviceName = zDeviceState.friendly_name
+                    Dbg:Trace("Renamed device to: " .. gDeviceName)
+                end
+
                 for name, value in pairs(zDeviceState.z2m_state) do
                     Dbg:Debug("DEVICE_SYNC(" .. name .. ")")
 
@@ -115,7 +128,7 @@ function EX_CMD.Z2M_DEVICE_SYNC(tParams)
                     if (DEVICE_SYNC[deviceSyncFunc] ~= nil and type(DEVICE_SYNC[deviceSyncFunc]) == "function") then
                         status, ret = pcall(DEVICE_SYNC[deviceSyncFunc], value)
                     else
-                        Dbg:Info("DeviceSync: Unhandled property = " .. deviceSyncFunc)
+                        Dbg:Trace("DeviceSync: Unhandled property = " .. deviceSyncFunc)
                         status = true
                     end
 
@@ -125,7 +138,7 @@ function EX_CMD.Z2M_DEVICE_SYNC(tParams)
                 end
             else
                 pcall(function()
-                    Dbg:Trace("[Z2M_DEVICE_SYNC] Failed to decode JSON: " .. tParams["DEVICE"])
+                    Dbg:Error("[Z2M_DEVICE_SYNC] Failed to decode JSON: " .. tParams["DEVICE"])
                 end)
             end
         end

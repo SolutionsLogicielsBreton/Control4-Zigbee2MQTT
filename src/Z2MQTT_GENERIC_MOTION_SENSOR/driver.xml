@@ -8,7 +8,7 @@
   <creator>Solutions Logiciels Breton</creator>
   <created>10/19/2025 6:16 AM</created>
   <modified>10/19/2025 6:16 PM</modified>
-  <version>3</version>
+  <version>4</version>
   <control>lua_gen</control>
   <driver>DriverWorks</driver>
   <config>
